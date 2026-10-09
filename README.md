@@ -28,3 +28,11 @@ Node.jsがある環境で `node test.cjs` を実行。予算内の全選択経�
 
 静的HTML/CSS/JavaScriptのみで動作します。外部フォント、解析ツール、利用者情報の送信はありません。
 
+
+## 場面から学ぶ
+
+6場面それぞれに写実的なAI生成イラスト、短い解説、2択の確認問題を追加しています。確認問題を解かずに次へ進むこともできます。終了後は選んだ行動と学びを読み返し、次に変えたい判断をメモできます。メモは画面上だけで保持され、送信・保存されません。
+
+参考資料は [Sphere Handbook](https://spherestandards.org/handbook/) と [CHS 2024](https://www.corehumanitarianstandard.org/the-standard) です。公式教材ではなく、解説・問いは本ゲーム独自のものです。
+
+画像は `assets/` 内の6枚です。内蔵ImageGenで作成したプロンプトは [assets/PROMPTS.md](assets/PROMPTS.md) に記録しています。画像中の人数・物資はシミュレーションの状態や選択結果を表しません。
