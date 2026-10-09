@@ -1,0 +1,5 @@
+const assert = require('node:assert/strict');
+const {initialState,scenarios,applyChoice,summary}=require('./game.js');
+let paths=0,complete=0;
+function visit(state){if(state.step===6){paths++;if(summary(state).every(x=>x.ok))complete++;return;}let available=0;for(const choice of scenarios[state.step].choices){const next=applyChoice(state,choice);if(choice[1]>state.budget){assert.equal(next,null);continue;}available++;assert(next.budget>=0);assert(next.injured>=0);assert(next.trust<=100);assert.equal(applyChoice(next,choice),null);visit({...next,pending:false,step:state.step+1});}assert(available>0);}
+visit(initialState());assert(complete>0);let state=initialState();for(const index of [1,2,0,1,3,3]){state=applyChoice(state,scenarios[state.step].choices[index]);state={...state,pending:false,step:state.step+1};}assert(summary(state).every(x=>x.ok));assert.equal(state.budget,15);console.log(`PASS: ${paths} affordable routes finish; ${complete} routes meet all six support goals. Complete support example leaves 15万円.`);
